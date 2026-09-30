@@ -1,0 +1,910 @@
+.aventura {
+  min-height: 100vh;
+  color: white;
+  background:
+    radial-gradient(circle at top left, #864ccc, transparent 55%),
+    radial-gradient(circle at bottom right, #206c91, transparent 55%),
+    #29164b;
+}
+
+header {
+  max-width: 1280px;
+  margin: auto;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+header strong {
+  color: #ffe68b;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px 28px 45px;
+  min-height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 45px;
+  align-items: center;
+}
+
+.personaje {
+  position: relative;
+}
+
+.personaje img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 110px 110px 40px 40px;
+  border: 3px solid #d7afff;
+}
+
+.dialogo {
+  position: relative;
+  width: 94%;
+  margin: -40px auto 0;
+  padding: 20px;
+  border-radius: 23px;
+  color: #54247e;
+  background: white;
+  box-shadow: 0 7px 0 #ad83d3;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.dialogo small {
+  display: block;
+  margin-bottom: 8px;
+  color: #9662bb;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.contenido {
+  min-width: 0;
+}
+
+.etiqueta {
+  color: #dabdff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1.06;
+  margin: 20px 0;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  color: #ffe279;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #e8ddf6;
+}
+
+.principal,
+.secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.principal {
+  margin-top: 22px;
+  padding: 20px 28px;
+  border: none;
+  border-radius: 22px;
+  color: #462466;
+  background: #ffe279;
+  box-shadow: 0 7px 0 #b99135;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.secundario {
+  padding: 13px 17px;
+  border: 1px solid #ffffff45;
+  border-radius: 15px;
+  color: white;
+  background: #ffffff12;
+  font-size: 16px;
+}
+
+.secundario:hover:not(:disabled) {
+  background: #ffffff25;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.secundario:disabled {
+  opacity: 0.4;
+}
+
+.ejemplo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.ejemplo span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid #ffffff70;
+}
+
+.interrogacion {
+  color: white;
+  font-size: 30px;
+}
+
+.marcadores {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.marcadores > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid #ffffff30;
+  background: #ffffff10;
+  border-radius: 15px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.marcadores svg {
+  color: #ffd447;
+}
+
+h2 {
+  margin: 24px 0 20px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.modelo {
+  padding: 18px;
+  border: 1px solid #ffffff35;
+  border-radius: 22px;
+  background: #ffffff10;
+  text-align: center;
+}
+
+.modelo > span {
+  color: #e5d6f8;
+  font-size: 17px;
+}
+
+.patron {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 14px;
+}
+
+.muestra {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #ffffff80;
+  border-radius: 50%;
+  color: #25223c;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.gusanito {
+  margin-top: 25px;
+  padding: 24px 18px;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 8px 0 #a982c4;
+}
+
+.amigo {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.segmentos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.segmento {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 3px solid #d6cce3;
+  border-radius: 50%;
+  color: #7041a1;
+  background: #f7f3fc;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.segmento.activo {
+  border: 3px dashed #8e4dcc;
+  background: #eee0ff;
+  box-shadow: 0 0 0 4px #eadbfa;
+}
+
+.numero {
+  color: #292239;
+  font-size: 18px;
+}
+
+.vacio {
+  color: #c4b7d4;
+}
+
+.error {
+  outline: 4px solid #ff9bc6;
+}
+
+.ayuda {
+  margin: 18px 0;
+  text-align: center;
+  font-size: 17px;
+}
+
+.paleta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.opcion {
+  padding: 14px 8px;
+  border: 2px solid #ffffff45;
+  border-radius: 20px;
+  background: #ffffff12;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.opcion > span {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
+  border: 2px solid #ffffff70;
+  border-radius: 50%;
+}
+
+.opcion:hover:not(:disabled) {
+  background: #ffffff25;
+}
+
+.opcion.pista {
+  border-color: #ffe279;
+  box-shadow: 0 0 0 3px #ffe279;
+}
+
+.avance {
+  height: 10px;
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff20;
+}
+
+.avance div {
+  height: 100%;
+  background: #ffe279;
+  transition: width 0.3s ease;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.final {
+  text-align: center;
+}
+
+.trofeo {
+  font-size: 90px;
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 15px;
+  }
+
+  header strong {
+    font-size: 12px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    padding: 10px 18px 35px;
+    gap: 30px;
+  }
+
+  .personaje img {
+    height: 230px;
+    border-radius: 30px;
+    object-position: center 24%;
+  }
+
+  .dialogo {
+    font-size: 17px;
+    padding: 14px;
+  }
+
+  .portada {
+    text-align: center;
+  }
+
+  .ejemplo {
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  .segmentos {
+    gap: 8px;
+  }
+
+  .segmento {
+    font-size: 23px;
+    border-width: 2px;
+  }
+
+  .numero {
+    font-size: 14px;
+  }
+
+  .gusanito {
+    padding: 18px 12px;
+  }
+
+  .paleta {
+    gap: 8px;
+  }
+
+  .opcion {
+    font-size: 14px;
+    padding: 12px 5px;
+  }
+
+  .opcion > span {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avance div {
+    transition: none;
+  }
+}
+/* Fondo que comparte los colores de la imagen de Rumi */
+.aventura {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  background: #7253ad;
+  color: white;
+}
+
+.aventura::before {
+  content: "";
+  position: fixed;
+  inset: -60px;
+  z-index: -2;
+  pointer-events: none;
+  background: url("/rumi.png") center / cover no-repeat;
+  filter: blur(45px);
+}
+
+.aventura::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(70, 35, 115, 0.15),
+    rgba(46, 25, 85, 0.72)
+  );
+}
+
+/* Quitar los límites que dejan espacio a los lados */
+.aventura > header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 3vw;
+}
+
+.aventura > main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 3vw 35px;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 4vw;
+}
+
+/* Integrar el retrato sin marco ni esquinas marcadas */
+.personaje img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 8%,
+      black 85%,
+      transparent
+    );
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 8%,
+      black 85%,
+      transparent
+    );
+  mask-composite: intersect;
+}
+
+.aventura h1,
+.aventura h2 {
+  color: white;
+}
+
+.aventura h1 span {
+  color: #ffe279;
+}
+
+.portada {
+  text-align: center;
+}
+
+.portada .ejemplo {
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .aventura > header {
+    padding: 15px;
+  }
+
+  .aventura > main {
+    grid-template-columns: 1fr;
+    padding: 10px 18px 30px;
+    gap: 30px;
+  }
+
+  .personaje img {
+    height: 260px;
+    object-fit: cover;
+    object-position: center 24%;
+  }
+}
+/* Pantalla de escritorio */
+@media (min-width: 801px) and (min-height: 600px) {
+  .aventura {
+    height: 100dvh;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 76px minmax(0, 1fr);
+  }
+
+  .aventura > header {
+    padding: 12px 3vw;
+  }
+
+  .aventura > header > strong {
+    font-size: clamp(40px, 2.5vw, 38px);
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+
+  .aventura > main {
+    min-height: 0;
+    height: 100%;
+    padding: 8px 3vw 20px;
+    gap: 3vw;
+    align-items: center;
+  }
+
+  .personaje {
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  .personaje img {
+    height: calc(100dvh - 170px);
+    max-height: 670px;
+    object-fit: contain;
+  }
+
+  .dialogo {
+    margin-top: -35px;
+    padding: 12px 16px;
+    font-size: clamp(19px, 1.7vw, 25px);
+    line-height: 1.25;
+  }
+
+  .dialogo small {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .contenido {
+    min-height: 0;
+  }
+
+  .etiqueta {
+    font-size: clamp(16px, 1.4vw, 21px);
+  }
+
+  .aventura h1 {
+    font-size: clamp(42px, 4.8vw, 76px);
+    margin: 12px 0;
+  }
+
+  .aventura h2 {
+    font-size: clamp(28px, 2.7vw, 40px);
+    margin: 12px 0;
+  }
+
+  .portada p,
+  .final p {
+    font-size: clamp(20px, 1.9vw, 28px);
+    line-height: 1.35;
+    margin: 12px 0;
+  }
+
+  .marcadores > span {
+    font-size: clamp(20px, 1.8vw, 27px);
+    padding: 9px 16px;
+  }
+
+  .modelo {
+    padding: 10px 16px;
+  }
+
+  .modelo > span {
+    font-size: clamp(19px, 1.7vw, 25px);
+  }
+
+  .patron {
+    margin-top: 8px;
+  }
+
+  .muestra {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .gusanito {
+    margin-top: 12px;
+    padding: 10px 15px 14px;
+  }
+
+  .amigo {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .segmentos {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .segmento {
+    width: min(100%, clamp(42px, 7.5vh, 78px));
+    font-size: 30px;
+  }
+
+  .numero {
+    font-size: 20px;
+  }
+
+  .ayuda {
+    font-size: clamp(18px, 1.6vw, 24px);
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  .opcion {
+    padding: 8px;
+    font-size: clamp(18px, 1.6vw, 24px);
+  }
+
+  .opcion > span {
+    width: clamp(34px, 5vh, 50px);
+    height: clamp(34px, 5vh, 50px);
+    margin-bottom: 5px;
+  }
+
+  .avance {
+    height: 8px;
+    margin-top: 12px;
+  }
+
+  .controles {
+    margin-top: 12px;
+  }
+
+  .secundario {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  .principal {
+    font-size: clamp(22px, 2vw, 30px);
+    padding: 16px 25px;
+    margin-top: 14px;
+  }
+
+  .ejemplo {
+    margin-top: 14px;
+  }
+
+  .trofeo {
+    font-size: 65px;
+  }
+}
+/* Mano grande con guante blanco */
+.aventura {
+  --cursor-mano: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M22 33V10C22 3 32 3 32 10V27C32 20 41 20 41 27V30C41 24 50 25 50 31V34C50 28 59 30 58 37L56 46C55 52 51 56 46 58H28C23 55 20 51 17 47L8 36C4 30 11 24 16 29L22 35Z' fill='white' stroke='%23352455' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M29 39V46M38 37V46M47 39V46' fill='none' stroke='%23352455' stroke-width='2.5' stroke-linecap='round'/%3E%3Crect x='25' y='54' width='24' height='8' rx='3' fill='%23ffe279' stroke='%23352455' stroke-width='3'/%3E%3C/svg%3E") 27 5;
+}
+
+/* Aplicar en toda la pantalla del juego */
+.aventura,
+.aventura * {
+  cursor: var(--cursor-mano), pointer !important;
+}
+/* Escenarios de los cinco juegos */
+.titulo-escenario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #603185;
+  font-size: 21px;
+}
+
+.titulo-escenario > span {
+  font-size: 32px;
+}
+
+/* Gusanito: círculos cercanos */
+.tema-gusano {
+  background: #f1ffe5;
+}
+
+.tema-gusano .segmentos {
+  column-gap: 5px;
+}
+
+/* Tren: vagones con ruedas */
+.tema-tren {
+  background: #eaf6ff;
+}
+
+.tema-tren .segmentos {
+  row-gap: 22px;
+  padding-bottom: 12px;
+}
+
+.tema-tren .segmento {
+  position: relative;
+  border-radius: 12px;
+  border-bottom-width: 6px;
+}
+
+.tema-tren .segmento::before,
+.tema-tren .segmento::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #655675;
+  border-radius: 50%;
+  background: #302b40;
+}
+
+.tema-tren .segmento::before {
+  left: 12%;
+}
+
+.tema-tren .segmento::after {
+  right: 12%;
+}
+
+/* Pizza: porciones alrededor del centro */
+.tema-pizza {
+  background: #fff3df;
+}
+
+.pizza-tablero {
+  display: block;
+  width: min(100%, 290px);
+  height: auto;
+  margin: auto;
+}
+
+/* Collar: cuentas unidas por una cuerda */
+.tema-collar {
+  background: #fff0fa;
+}
+
+.tema-collar .segmentos {
+  row-gap: 13px;
+}
+
+.tema-collar .segmento {
+  position: relative;
+  border-width: 4px;
+  box-shadow: inset -5px -5px 0 #00000012;
+}
+
+.tema-collar .segmento::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 100%;
+  width: 24px;
+  height: 4px;
+  background: #b78754;
+  pointer-events: none;
+}
+
+.tema-collar .segmento:nth-child(6n)::after,
+.tema-collar .segmento:last-child::after {
+  display: none;
+}
+
+.tema-collar .segmento.activo {
+  box-shadow: 0 0 0 4px #eadbfa;
+}
+
+/* Camino: piedras numeradas hasta el castillo */
+.tema-camino {
+  background: #eaf8e1;
+}
+
+.tema-camino .segmento {
+  border-radius: 35% 45% 32% 40%;
+  border-bottom-width: 6px;
+}
+
+.meta-castillo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  color: #52733b;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.meta-castillo > span:last-child {
+  font-size: 30px;
+}
+
+/* Ajuste para que la pizza no alargue la pantalla */
+@media (min-width: 801px) and (min-height: 600px) {
+  .titulo-escenario {
+    margin-bottom: 6px;
+    font-size: 20px;
+  }
+
+  .titulo-escenario > span {
+    font-size: 26px;
+  }
+
+  .pizza-tablero {
+    width: auto;
+    height: clamp(145px, 25vh, 250px);
+    max-width: 100%;
+  }
+
+  .ayuda {
+    font-size: 18px;
+    line-height: 1.15;
+    margin: 8px 0;
+  }
+
+  .tema-tren .segmentos {
+    row-gap: 18px;
+  }
+
+  .meta-castillo {
+    margin-top: 5px;
+  }
+
+  .meta-castillo > span:last-child {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .titulo-escenario {
+    font-size: 18px;
+  }
+
+  .tema-tren .segmento::before,
+  .tema-tren .segmento::after {
+    width: 12px;
+    height: 12px;
+    bottom: -10px;
+    border-width: 2px;
+  }
+}

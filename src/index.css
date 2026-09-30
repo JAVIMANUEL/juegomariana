@@ -1,0 +1,46 @@
+:root {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: white;
+  background: #7253ad;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  display: block;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  isolation: isolate;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:focus-visible {
+  outline: 4px solid white;
+  outline-offset: 5px;
+}
