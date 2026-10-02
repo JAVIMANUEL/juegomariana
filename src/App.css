@@ -908,3 +908,594 @@ h2 {
     border-width: 2px;
   }
 }
+
+/* Tres aventuras: colores, formas y números */
+.selector-modos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:18px 0; }
+.tarjeta-modo { display:flex; flex-direction:column; align-items:center; gap:7px; padding:16px 10px; border:2px solid #ffffff55; border-radius:22px; color:white; background:#ffffff14; }
+.tarjeta-modo > span { font-size:36px; line-height:1.1; }
+.tarjeta-modo strong { font-size:24px; }
+.tarjeta-modo small { font-size:15px; }
+.tarjeta-modo.elegido { border-color:#ffe279; background:#5d368dd9; box-shadow:0 0 0 3px #ffe27955; }
+.tarjeta-modo:hover { background:#6c489dcc; }
+.modo-formas .paleta { grid-template-columns:repeat(5,minmax(0,1fr)); }
+.paleta.paleta-numeros { grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+.modo-formas .opcion > span,.modo-numeros .opcion > span { display:grid; place-items:center; color:#603185; font-size:36px; line-height:1; }
+.modo-formas .muestra { font-size:32px; color:#603185; }
+.modo-numeros .muestra { font-size:27px; color:#603185; }
+.simbolo-ficha { font-size:clamp(25px,3vw,42px); color:#603185; line-height:1; }
+.paleta-numeros .opcion { padding:5px; font-size:14px; }
+.paleta-numeros .opcion > span { width:34px; height:34px; font-size:27px; margin-bottom:2px; }
+.modo-formas .ayuda,.modo-numeros .ayuda { font-size:16px; }
+@media (min-width:801px) and (min-height:600px) {
+  .selector-modos { margin:12px 0; }
+  .tarjeta-modo { padding:12px 8px; }
+  .modo-numeros h2,.modo-formas h2 { margin:8px 0; }
+  .modo-numeros .modelo { padding:8px 12px; }
+  .modo-numeros .gusanito { margin-top:8px; }
+  .modo-numeros .segmento { width:min(100%,clamp(40px,6vh,65px)); }
+  .modo-numeros .pizza-tablero { height:clamp(135px,22vh,220px); }
+  .modo-numeros .controles { margin-top:8px; }
+  .modo-numeros .avance { margin-top:8px; }
+  .modo-numeros .ayuda { margin:6px 0; }
+}
+@media (max-width:800px) {
+ .selector-modos { gap:8px; }
+ .tarjeta-modo { padding:12px 5px; }
+ .tarjeta-modo strong { font-size:18px; }
+ .tarjeta-modo > span { font-size:28px; }
+ .modo-formas .opcion { font-size:12px; padding:8px 2px; }
+ .modo-formas .opcion > span { width:34px; height:34px; font-size:28px; }
+ .simbolo-ficha { font-size:25px; }
+ .marcadores { flex-wrap:wrap; }
+}
+/* Portada blanca con colores alegres */
+.aventura.inicio-alegre {
+  position: relative;
+  isolation: isolate;
+  background: #fff;
+  color: #543479;
+}
+
+/* Sustituir el fondo anterior únicamente en la portada */
+.aventura.inicio-alegre::before {
+  inset: 0;
+  background: #fff;
+  filter: none;
+}
+
+.aventura.inicio-alegre::after {
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 109, 159, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 88% 75%,
+      rgba(35, 193, 230, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 55% 5%,
+      rgba(255, 213, 65, 0.12),
+      transparent 30%
+    );
+}
+
+/* Lluvia decorativa detrás del contenido */
+.lluvia-alegre {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.figura-lluvia {
+  position: absolute;
+  top: -70px;
+  left: var(--posicion);
+  color: var(--color);
+  font-size: var(--tamano);
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.55;
+  user-select: none;
+  animation:
+    lluvia-feliz var(--duracion) linear
+    var(--retraso) infinite;
+}
+
+@keyframes lluvia-feliz {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(calc(100vh + 140px))
+      rotate(var(--giro));
+  }
+}
+
+/* Mantener botones y textos delante de la lluvia */
+.inicio-alegre > header,
+.inicio-alegre > main {
+  position: relative;
+  z-index: 1;
+}
+
+.aventura.inicio-alegre h1 {
+  color: #603486;
+}
+
+.aventura.inicio-alegre h1 span {
+  color: #b87400;
+}
+
+.inicio-alegre .etiqueta {
+  color: #9450b5;
+}
+
+.inicio-alegre .portada p {
+  color: #684d82;
+}
+
+.aventura.inicio-alegre > header > strong {
+  color: #7b3eb1;
+}
+
+.inicio-alegre .secundario {
+  color: #654185;
+  background: #fff;
+  border-color: #d9c8ea;
+}
+
+.inicio-alegre .tarjeta-modo {
+  color: #62417e;
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #dbcbea;
+  box-shadow: 0 5px 15px #74458c12;
+}
+
+.inicio-alegre .tarjeta-modo.elegido {
+  color: #603486;
+  background: #fff8df;
+  border-color: #efbd32;
+  box-shadow: 0 0 0 3px #ffd74e35;
+}
+
+.inicio-alegre .tarjeta-modo:hover {
+  background: #f5edff;
+}
+
+.inicio-alegre .principal {
+  background: #ffd951;
+  color: #563079;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figura-lluvia {
+    animation: none;
+    top: calc(var(--posicion) * 0.8);
+    opacity: 0.25;
+  }
+}
+/* Lluvia más visible, delante del contenido */
+.inicio-alegre .lluvia-alegre {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.inicio-alegre .figura-lluvia {
+  opacity: 0.8;
+  text-shadow: 0 2px 3px #ffffff;
+}
+
+/* Nube detrás del nombre HAPPY KIDS */
+.aventura.inicio-alegre > header {
+  z-index: 3;
+}
+
+.aventura.inicio-alegre > header > strong {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  padding: 18px 30px;
+  border-radius: 50px;
+  background: white;
+  color: #8845bd;
+  box-shadow: 0 6px 0 #e5d9f5;
+  text-align: center;
+}
+
+/* Parte superior de la nube */
+.aventura.inicio-alegre > header > strong::before,
+.aventura.inicio-alegre > header > strong::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.aventura.inicio-alegre > header > strong::before {
+  width: 65px;
+  height: 45px;
+  top: -12px;
+  left: 18%;
+}
+
+.aventura.inicio-alegre > header > strong::after {
+  width: 85px;
+  height: 55px;
+  top: -17px;
+  right: 17%;
+}
+
+@media (max-width: 800px) {
+  .aventura.inicio-alegre > header > strong {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .aventura.inicio-alegre > header > strong::before {
+    width: 45px;
+    height: 30px;
+    top: -8px;
+  }
+
+  .aventura.inicio-alegre > header > strong::after {
+    width: 55px;
+    height: 35px;
+    top: -10px;
+  }
+}
+/* Lluvia que recorre toda la pantalla */
+.inicio-alegre .lluvia-alegre {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.inicio-alegre .figura-lluvia {
+  position: absolute;
+  top: -70px;
+  left: var(--posicion);
+  opacity: 0.75;
+  text-shadow: 0 1px 3px white;
+
+  animation: caer-pantalla-completa
+    var(--duracion)
+    linear
+    var(--retraso)
+    infinite;
+}
+
+@keyframes caer-pantalla-completa {
+  from {
+    top: -70px;
+    transform: rotate(0deg);
+  }
+
+  to {
+    top: calc(100dvh + 70px);
+    transform: rotate(var(--giro));
+  }
+}
+
+/* Nube con silueta completa y curvas suaves */
+.aventura.inicio-alegre > header > strong {
+  position: relative;
+  display: inline-block;
+  padding: 28px 38px 22px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: #8845bd;
+  text-align: center;
+  line-height: 1.2;
+
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 120' preserveAspectRatio='none'%3E%3Cpath d='M55 109C24 109 7 95 7 76C7 59 20 46 40 44C39 23 60 10 83 10C106 10 121 20 127 34C139 12 164 5 187 8C211 10 225 20 231 34C242 13 263 5 286 7C312 8 331 18 336 36C350 16 373 9 396 13C419 16 431 28 434 44C446 30 464 25 482 29C503 33 511 46 510 58C535 55 553 69 553 84C553 101 536 109 511 109Z' fill='white' stroke='%23ddc9f4' stroke-width='3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 5px 0 #eadff6);
+}
+
+/* Quitar las dos bolitas de la nube anterior */
+.aventura.inicio-alegre > header > strong::before,
+.aventura.inicio-alegre > header > strong::after {
+  content: none;
+}
+
+/* Dar espacio a la nube para que no se corte arriba */
+.aventura.inicio-alegre > header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  z-index: 11;
+}
+
+@media (min-width: 801px) and (min-height: 600px) {
+  .aventura.inicio-alegre {
+    grid-template-rows: 105px minmax(0, 1fr);
+  }
+
+  .aventura.inicio-alegre > header > strong {
+    font-size: clamp(24px, 2.3vw, 34px);
+  }
+}
+
+@media (max-width: 800px) {
+  .aventura.inicio-alegre > header > strong {
+    padding: 22px 22px 17px;
+    font-size: 16px;
+    max-width: 75%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inicio-alegre .figura-lluvia {
+    animation: none;
+    top: var(--posicion);
+    opacity: 0.3;
+  }
+}
+/* Logo ilustrado, hecho completamente con SVG */
+.logo-happy-kids {
+  display: block;
+  width: clamp(220px, 24vw, 300px);
+  height: auto;
+  flex-shrink: 0;
+  overflow: visible;
+  filter: drop-shadow(0 3px 2px #75458b20);
+}
+
+.aventura > header {
+  align-items: center;
+}
+
+@media (min-width: 801px) and (min-height: 600px) {
+  .aventura.inicio-alegre {
+    grid-template-rows: 145px minmax(0, 1fr);
+  }
+
+  .aventura.inicio-alegre > header {
+    padding: 5px 3vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo-happy-kids {
+    width: min(65vw, 250px);
+  }
+}
+/* Logo Happy Kids más grande */
+.logo-happy-kids {
+  width: clamp(280px, 30vw, 380px);
+}
+
+/* Espacio para el logo y la nube */
+@media (min-width: 801px) and (min-height: 600px) {
+  .aventura.inicio-alegre {
+    grid-template-rows: 180px minmax(0, 1fr);
+  }
+}
+
+.aventura.inicio-alegre > header {
+  position: relative;
+}
+
+/* Nube central */
+.nube-kinder {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 0 #eadff6);
+
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 145'%3E%3Cpath d='M48 134C22 134 7 121 7 103C7 86 19 73 39 71C34 45 52 28 76 28C88 28 99 33 105 42C111 18 130 7 151 7C176 7 195 22 197 46C211 28 234 29 248 43C257 52 260 62 257 74C278 75 293 89 293 106C293 124 277 134 253 134Z' fill='white' stroke='%23d9c3f0' stroke-width='3'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+}
+
+.nube-kinder span {
+  color: #9650c5;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.nube-kinder strong {
+  color: #d58a00;
+  font-size: 38px;
+  line-height: 1.1;
+}
+
+/* En celulares, acomodar la nube debajo del logo */
+@media (max-width: 800px) {
+  .logo-happy-kids {
+    width: min(70vw, 300px);
+  }
+
+  .aventura.inicio-alegre > header {
+    flex-wrap: wrap;
+  }
+
+  .nube-kinder {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    order: 3;
+    margin: 0 auto;
+    width: 220px;
+    height: 110px;
+  }
+
+  .nube-kinder span {
+    font-size: 25px;
+  }
+
+  .nube-kinder strong {
+    font-size: 32px;
+  }
+}
+/* Nube ancha con texto infantil */
+.nube-kinder {
+  width: clamp(340px, 36vw, 520px);
+  height: 145px;
+  padding: 20px 28px 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 150' preserveAspectRatio='none'%3E%3Cpath d='M53 139C23 139 8 124 8 105C8 87 22 73 44 72C40 48 58 30 83 30C101 30 114 39 120 50C126 25 147 12 173 15C195 17 210 31 214 49C224 21 247 8 274 11C301 14 319 32 319 52C333 29 355 22 378 28C398 33 409 46 411 62C424 43 446 38 465 46C483 52 491 66 490 79C520 75 552 88 552 110C552 130 533 139 506 139Z' fill='white' stroke='%23dac5f0' stroke-width='3'/%3E%3C/svg%3E");
+}
+
+.texto-kinder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+/* Sustituir los estilos anteriores de cada letra */
+.nube-kinder .texto-kinder > span {
+  display: inline-block;
+  font-family:
+    "Comic Sans MS",
+    "Comic Sans",
+    "Trebuchet MS",
+    cursive;
+  font-size: clamp(32px, 3.2vw, 48px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 0 #eadff5;
+}
+
+@media (max-width: 800px) {
+  .nube-kinder {
+    width: min(94%, 420px);
+    height: 130px;
+    padding: 18px 20px 0;
+  }
+
+  .nube-kinder .texto-kinder > span {
+    font-size: clamp(26px, 6vw, 38px);
+  }
+}
+/* COLORES: violeta */
+.aventura.modo-colores:not(.inicio-alegre) {
+  --fondo-juego: #682ca3;
+  --profundidad-juego: #351256;
+  --luz-juego: #bd87ef;
+}
+
+/* FORMAS: azul marino */
+.aventura.modo-formas:not(.inicio-alegre) {
+  --fondo-juego: #153563;
+  --profundidad-juego: #08182f;
+  --luz-juego: #629bd6;
+}
+
+/* NÚMEROS: rosado oscuro */
+.aventura.modo-numeros:not(.inicio-alegre) {
+  --fondo-juego: #a52e68;
+  --profundidad-juego: #521735;
+  --luz-juego: #ee88b8;
+}
+
+/* Fondo independiente para cada actividad */
+.aventura:not(.inicio-alegre) {
+  background: var(--fondo-juego);
+  color: white;
+}
+
+/* Sustituir la imagen difuminada por colores */
+.aventura:not(.inicio-alegre)::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  filter: none;
+
+  background:
+    radial-gradient(
+      ellipse at 12% 18%,
+      var(--luz-juego) 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      135deg,
+      var(--fondo-juego),
+      var(--profundidad-juego)
+    );
+}
+
+/* Luces blancas difuminadas */
+.aventura:not(.inicio-alegre)::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 18% 28%,
+      rgba(255, 255, 255, 0.25),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 85% 18%,
+      rgba(255, 255, 255, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 65% 90%,
+      rgba(255, 255, 255, 0.13),
+      transparent 38%
+    );
+
+  animation: luces-del-juego 10s ease-in-out infinite alternate;
+}
+
+/* Movimiento suave de las luces */
+@keyframes luces-del-juego {
+  from {
+    opacity: 0.65;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Textos legibles sobre los fondos oscuros */
+.aventura:not(.inicio-alegre) h2,
+.aventura:not(.inicio-alegre) .ayuda {
+  color: white;
+}
+
+.aventura:not(.inicio-alegre) .modelo,
+.aventura:not(.inicio-alegre) .marcadores > span {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aventura:not(.inicio-alegre)::after {
+    animation: none;
+    opacity: 0.85;
+  }
+}
